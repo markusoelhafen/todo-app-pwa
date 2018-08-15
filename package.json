@@ -1,0 +1,31 @@
+{
+  "name": "react-ts-store-input",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject",
+    "build:components": "tsc -p tsconfig.json --outDir .lib --watch",
+    "watch:components": "patternplate start & yarn build:components"
+  },
+  "dependencies": {
+    "idb": "^2.1.3",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "styled-components": "^3.4.2"
+  },
+  "devDependencies": {
+    "@patternplate/cli": "^2.5.18",
+    "@patternplate/render-default": "^2.5.18",
+    "@patternplate/render-styled-components": "^2.5.18",
+    "@types/jest": "^23.3.1",
+    "@types/node": "^10.5.7",
+    "@types/react": "^16.4.9",
+    "@types/react-dom": "^16.0.7",
+    "patternplate": "^2.5.21",
+    "react-scripts-ts": "2.17.0",
+    "typescript": "^3.0.1"
+  }
+}
