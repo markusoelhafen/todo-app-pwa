@@ -51,9 +51,9 @@ class App extends React.Component {
   }
 
   private handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const {value} = e.target
+    const value = e.target
     
-    this.setState({value});
+    this.setState(value);
   }
 
 }
