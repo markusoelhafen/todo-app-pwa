@@ -9,11 +9,6 @@ class App extends React.Component {
     data: [],
     value: ""
   }
-
-  public deleteToDo(e:any) {
-    this.state.data = this.state.data.filter((item:any) => item !== e.target.id)
-    this.setState(this.state.data)
-  }
   
   public render() {
     return (
@@ -26,7 +21,7 @@ class App extends React.Component {
       >
         <Input
           placeholder="Add ToDo"
-          onChange={e => this.handleChange(e)}
+          onChange={e => this.setState(e.target)}
           onKeyPress={e => this.addToDo(e)}
           value={this.state.value}
         />
@@ -50,10 +45,9 @@ class App extends React.Component {
     }
   }
 
-  private handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target
-    
-    this.setState(value);
+  private deleteToDo(e:any) {
+    this.state.data = this.state.data.filter((item:any) => item !== e.target.id)
+    this.setState(this.state.data)
   }
 
 }

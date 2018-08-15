@@ -14,3 +14,4 @@ ToDos:
 - [] Add ID to created todos
 - [] Delete ToDo based on ID
 - [] Store ToDos somewhere
+- [] Validate what has been entered (eg. no empty values)
