@@ -14,6 +14,11 @@ const StyledDataContainer = styled.div`
   display: flex;
   margin-bottom: ${Space(SpaceSize.Size200)};
   padding: ${Space(SpaceSize.Size300)} ${Space(SpaceSize.Size500)};
+
+  &:hover {
+    box-shadow: 0 0 6px 1px rgba(0,0,0,.2);
+    scale: 1.05;
+  }
 `;
   
 const StyledDataField = styled.div`

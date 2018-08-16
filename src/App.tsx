@@ -3,9 +3,14 @@ import Box, { AlignItems, JustifyContent } from './components/box/box';
 import DataListContainer from './container/datalist-container';
 import Input from './container/input-container';
 
+export interface AppState {
+  data?: string[];
+  value?: string;
+}
+
 class App extends React.Component {
 
-  public state: any = {
+  public state: AppState = {
     data: [],
     value: ""
   }
@@ -48,7 +53,7 @@ class App extends React.Component {
     }
   }
 
-  private findDuplicate(data: string[], value:string) {
+  private findDuplicate(data: string[], value: string) {
     const res = data.find((item:any) => item === value);
     if (res !== undefined) {
       return true
@@ -62,7 +67,7 @@ class App extends React.Component {
     const value = e.target.id;
 
     // remove id from data-array
-    this.state.data = this.state.data.filter((item:any) => item !== value)
+    this.state.data = this.state.data.filter((item: any) => item !== value)
 
     // update state
     this.setState(this.state.data)
