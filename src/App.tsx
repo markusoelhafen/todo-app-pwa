@@ -34,8 +34,8 @@ class App extends React.Component {
   }
 
   private addToDo(e: any) {  
-    // only write data when pressing enter
-    if (e.key === 'Enter') {
+    // only write data when pressing enter & don't allow empty values
+    if (e.key === 'Enter' && this.state.value !== "") {
       // push input value to data array
       this.state.data.push(e.target.value);
       this.setState(this.state.data);
