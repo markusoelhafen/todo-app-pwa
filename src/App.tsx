@@ -21,7 +21,7 @@ class App extends React.Component {
       >
         <Input
           placeholder="Add ToDo"
-          onChange={e => this.setState(e.target)}
+          onChange={e => this.handleChange(e)}
           onKeyPress={e => this.addToDo(e)}
           value={this.state.value}
         />
@@ -33,7 +33,7 @@ class App extends React.Component {
     );
   }
 
-  private addToDo = (e: any) => {  
+  private addToDo(e: any) {  
     // only write data when pressing enter
     if (e.key === 'Enter') {
       // push input value to data array
@@ -45,9 +45,23 @@ class App extends React.Component {
     }
   }
 
-  private deleteToDo(e:any) {
-    this.state.data = this.state.data.filter((item:any) => item !== e.target.id)
+  private deleteToDo(e: any) {
+    // get id from clicked item
+    const value = e.target.id;
+
+    // remove id from data-array
+    this.state.data = this.state.data.filter((item:any) => item !== value)
+
+    // update state
     this.setState(this.state.data)
+  }
+
+  private handleChange(e: any) {
+    // get value from change event on input
+    const value = e.target;
+
+    // update state of input container
+    this.setState(value);
   }
 
 }
