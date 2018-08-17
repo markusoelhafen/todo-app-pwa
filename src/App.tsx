@@ -3,9 +3,14 @@ import Box, { AlignItems, JustifyContent } from './components/box/box';
 import DataListContainer from './container/datalist-container';
 import Input from './container/input-container';
 
+export interface AppState {
+  data?: string[];
+  value?: string;
+}
+
 class App extends React.Component {
 
-  public state: any = {
+  public state: AppState = {
     data: [],
     value: ""
   }
@@ -34,14 +39,26 @@ class App extends React.Component {
   }
 
   private addToDo(e: any) {  
-    // only write data when pressing enter
-    if (e.key === 'Enter') {
+
+    const value = e.target.value
+
+    // only write data when pressing enter & don't allow empty values
+    if (e.key === 'Enter' && this.state.value !== "" && !this.findDuplicate(this.state.data, value)) {
       // push input value to data array
-      this.state.data.push(e.target.value);
+      this.state.data.push(value);
       this.setState(this.state.data);
 
       // empty input field
       this.state.value="";
+    }
+  }
+
+  private findDuplicate(data: string[], value: string) {
+    const res = data.find((item:any) => item === value);
+    if (res !== undefined) {
+      return true
+    } else {
+      return false
     }
   }
 
@@ -50,7 +67,7 @@ class App extends React.Component {
     const value = e.target.id;
 
     // remove id from data-array
-    this.state.data = this.state.data.filter((item:any) => item !== value)
+    this.state.data = this.state.data.filter((item: any) => item !== value)
 
     // update state
     this.setState(this.state.data)
