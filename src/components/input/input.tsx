@@ -7,6 +7,7 @@ export interface InputProps {
   onKeyPress?: React.KeyboardEventHandler<HTMLInputElement>;
   placeholder?: string;
   value?: string;
+  className?: any;
 }
 
 const StyledInput = styled.input`
@@ -15,7 +16,6 @@ const StyledInput = styled.input`
   padding: 5px 15px;
   box-sizing: border-box;
   border-radius: 5px;
-  font-size: 18px;
   font-weight: 100;
   outline: none;
   min-width: 300px;
@@ -31,6 +31,7 @@ const StyledInput = styled.input`
 const Input: React.StatelessComponent<InputProps> = (props): JSX.Element => (
   <React.Fragment>
     <StyledInput
+      className={props.className}
       id={props.id}
       onChange={props.onChange}
       onKeyPress={props.onKeyPress}

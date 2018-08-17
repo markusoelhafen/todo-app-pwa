@@ -1,0 +1,21 @@
+import * as React from 'react'
+import styled from 'styled-components'
+
+export interface HeaderProps {
+  title?: string
+}
+
+const StyledHeader = styled.div`
+  background-color: #e90f73;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 30px;
+`;
+
+const Header: React.StatelessComponent<HeaderProps> = (props): JSX.Element => (
+  <StyledHeader>{props.title}</StyledHeader>
+)
+
+export default Header;
