@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export interface DataProps {
   children?: React.ReactNode;
   data?: object;
+  className?: string;
 }
 
 const StyledDataContainer = styled.div`

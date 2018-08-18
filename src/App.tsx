@@ -27,15 +27,30 @@ injectGlobal`
 
 const StyledMainFrame = styled(Frame)`
   @media (max-width: 720px) {
-    // justify-content: space-between;
+    justify-content: space-between;
     height: 100vh;
   }
 `;
 
+const StyledInputFrame = styled(Frame)`
+@media (max-width: 720px) {
+  justify-content: space-between;
+  flex-grow: 1
+  align-items: center;
+}
+`;
+
 const StyledInput = styled(Input)`
-  order: 0;
+  order: 1;
+  width: 100%;
   @media (min-width: 720px) {
     order: 0;
+  }
+`;
+
+const StyledDataList = styled(DataListContainer)`
+  @media (max-width: 720px) {
+    width: 95%;
   }
 `;
 
@@ -50,18 +65,18 @@ class App extends React.Component {
     return (
       <StyledMainFrame centered={true}>
         <Header title="Tasks" />
-        <Frame maxWidth={MaxWidth.half}>
+        <StyledInputFrame maxWidth={MaxWidth.half}>
           <StyledInput
             placeholder="New Task"
             onChange={e => this.handleChange(e)}
             onKeyPress={e => this.addToDo(e)}
             value={this.state.value}
           />
-          <DataListContainer 
+          <StyledDataList 
             data={this.state.data} 
             onClick={e => this.deleteToDo(e)}
           />
-        </Frame>
+        </StyledInputFrame>
       </StyledMainFrame>
     );
   }

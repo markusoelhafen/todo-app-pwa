@@ -14,6 +14,7 @@ export interface DataProps {
 export interface DataListProps {
   data: DataProps[];
   onClick?: React.MouseEventHandler<HTMLElement>;
+  className?: string;
 }
 
 export class Input extends React.Component<DataListProps, {data: string[]}> {
@@ -25,7 +26,7 @@ export class Input extends React.Component<DataListProps, {data: string[]}> {
   public render (): JSX.Element {
 
     return (
-      <DataListComponent>
+      <DataListComponent className={this.props.className}>
         {this.props.data.length > 0 ? 
           <React.Fragment>
             <Copy bold={true} size={Size.Large}>
