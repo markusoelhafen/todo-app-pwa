@@ -6,6 +6,7 @@ export interface CopyProps {
   size?: Size;
   color?: string | "black";
   bold?: boolean;
+  centered?: boolean;
 }
 
 export enum Size {
@@ -17,6 +18,7 @@ export enum Size {
 const StyledCopy = styled.div`
   color: ${(props: CopyProps) => props.color ? props.color : `black`};
   font-weight: ${(props: CopyProps) => props.bold ? `bold` : `normal`};
+  text-align: ${(props: CopyProps) => props.centered ? `center` : `inherit`};
   display: block;
   margin-bottom: 10px;
 
@@ -34,7 +36,7 @@ const StyledCopy = styled.div`
 `;
 
 const Copy: React.StatelessComponent<CopyProps> = (props): JSX.Element => (
-  <StyledCopy color={props.color} size={props.size} bold={props.bold}>
+  <StyledCopy color={props.color} size={props.size} bold={props.bold} centered={props.centered}>
     {props.children}
   </StyledCopy>
 ); 

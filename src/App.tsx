@@ -22,6 +22,7 @@ injectGlobal`
     font: 16px/30px Roboto;
     margin: 0;
     padding: 0;
+    font-family: Renner, Futura, Verdana, Arial, sans-serif;
   }
 `;
 
@@ -64,7 +65,7 @@ class App extends React.Component {
   public render() {
     return (
       <StyledMainFrame centered={true}>
-        <Header title="Tasks" />
+        <Header title="✏️ Memo" />
         <StyledInputFrame maxWidth={MaxWidth.half}>
           <StyledInput
             placeholder="New Task"
@@ -83,11 +84,11 @@ class App extends React.Component {
 
   private addToDo(e: any) {  
     // only write data when pressing enter & don't allow empty values
-    if (e.key === 'Enter' && this.state.value !== "" /* && !this.findDuplicate(this.state.data, value)*/) {
+    if (e.key === 'Enter' && this.state.value !== "") {
       
       const newData: DataProps = {
-        id: this.state.data.length,
-        timestamp: Date.now(),
+        id: Date.now(), // use Date.now() as temporary uuid
+        timestamp: Date.now(), // placeholder for "created on date, time"
         value: this.state.value
       }
 
@@ -100,15 +101,6 @@ class App extends React.Component {
       this.state.value="";
     }
   }
-
-  // private findDuplicate(data: DataProps, value: string) {
-  //   const res = data.find((item:any) => item === value);
-  //   if (res !== undefined) {
-  //     return true
-  //   } else {
-  //     return false
-  //   }
-  // }
 
   private deleteToDo(e: any) {
     // transform id from string to number

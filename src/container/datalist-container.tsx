@@ -40,7 +40,10 @@ export class Input extends React.Component<DataListProps, {data: string[]}> {
           </React.Fragment>
         : 
           <Box flex={true} height="50vh" col={true} alignItems={AlignItems.Center} justifyContent={JustifyContent.Center}>
-            <Copy color="rgba(0,0,0,.2)" size={Size.Large}>Nothing to do, yay!</Copy>
+            <Copy color="#cccccc" size={Size.Large} centered={true}>
+              🙌<br />
+              Nothing to do, yay!
+            </Copy>
           </Box>
         }
       </DataListComponent>
