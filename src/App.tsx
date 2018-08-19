@@ -1,12 +1,64 @@
 import * as React from 'react';
-import Box, { AlignItems, JustifyContent } from './components/box/box';
+import styled, { injectGlobal } from 'styled-components';
+import Frame, { MaxWidth } from './components/frame/frame';
+import Header from './components/header/header';
 import DataListContainer from './container/datalist-container';
 import Input from './container/input-container';
 
 export interface AppState {
-  data?: string[];
+  data?: DataProps[];
   value?: string;
 }
+
+export interface DataProps {
+  id: number
+  timestamp: number
+  value: string
+}
+
+// tslint:disable-next-line:no-unused-expression
+injectGlobal`
+  * {
+    font: 16px/30px Roboto;
+    margin: 0;
+    padding: 0;
+    font-family: Renner, Futura, Verdana, Arial, sans-serif;
+  }
+
+  html, body, #root {
+    height: 100%;
+    width: 100%;
+  }
+`;
+
+const StyledMainFrame = styled(Frame)`
+  @media (max-width: 720px) {
+    justify-content: space-between;
+    height: 100%;
+  }
+`;
+
+const StyledInputFrame = styled(Frame)`
+@media (max-width: 720px) {
+  justify-content: space-between;
+  flex-grow: 1
+  align-items: center;
+}
+`;
+
+const StyledInput = styled(Input)`
+  order: 1;
+  width: 100%;
+  @media (min-width: 720px) {
+    order: 0;
+  }
+`;
+
+const StyledDataList = styled(DataListContainer)`
+  @media (max-width: 720px) {
+    width: 95%;
+  }
+`;
 
 class App extends React.Component {
 
@@ -17,57 +69,49 @@ class App extends React.Component {
   
   public render() {
     return (
-      <Box 
-        alignItems={AlignItems.Center}
-        col={true}
-        flex={true}
-        height="100vh" 
-        justifyContent={JustifyContent.Center}
-      >
-        <Input
-          placeholder="Add ToDo"
-          onChange={e => this.handleChange(e)}
-          onKeyPress={e => this.addToDo(e)}
-          value={this.state.value}
-        />
-        <DataListContainer 
-          data={this.state.data} 
-          onClick={e => this.deleteToDo(e)}
-        />
-      </Box>
+      <StyledMainFrame centered={true}>
+        <Header title="&#128221; Memo" />
+        <StyledInputFrame maxWidth={MaxWidth.half}>
+          <StyledInput
+            placeholder="New Task"
+            onChange={e => this.handleChange(e)}
+            onKeyPress={e => this.addToDo(e)}
+            value={this.state.value}
+          />
+          <StyledDataList 
+            data={this.state.data} 
+            onClick={e => this.deleteToDo(e)}
+          />
+        </StyledInputFrame>
+      </StyledMainFrame>
     );
   }
 
   private addToDo(e: any) {  
-
-    const value = e.target.value
-
     // only write data when pressing enter & don't allow empty values
-    if (e.key === 'Enter' && this.state.value !== "" && !this.findDuplicate(this.state.data, value)) {
+    if (e.key === 'Enter' && this.state.value !== "") {
+      
+      const newData: DataProps = {
+        id: Date.now(), // use Date.now() as temporary uuid
+        timestamp: Date.now(), // placeholder for "created on date, time"
+        value: this.state.value
+      }
+
       // push input value to data array
-      this.state.data.push(value);
+      this.state.data.push(newData);
       this.setState(this.state.data);
+      console.log(this.state.data)
 
       // empty input field
       this.state.value="";
     }
   }
 
-  private findDuplicate(data: string[], value: string) {
-    const res = data.find((item:any) => item === value);
-    if (res !== undefined) {
-      return true
-    } else {
-      return false
-    }
-  }
-
   private deleteToDo(e: any) {
-    // get id from clicked item
-    const value = e.target.id;
+    // transform id from string to number
+    const targetId = Number(e.target.id)
 
-    // remove id from data-array
-    this.state.data = this.state.data.filter((item: any) => item !== value)
+    this.state.data = this.state.data.filter((item: any) => targetId !== item.id)
 
     // update state
     this.setState(this.state.data)

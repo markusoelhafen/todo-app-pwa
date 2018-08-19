@@ -1,6 +1,6 @@
 import * as React from "react";
 import Box, { AlignSelf } from "../box/box";
-import Copy from "./copy";
+import Copy, { Size } from "./copy";
 
 
 const DemoCopy = () => (
@@ -8,10 +8,10 @@ const DemoCopy = () => (
     <Copy>
       Default Copy – Sans Serif | font-size: 16px | line-height: 30px | black
     </Copy>
-    <Copy small={true}>
+    <Copy size={Size.Small}>
       Small Copy – Sans Serif | font-size: 12px | line-height: 18px | black
     </Copy>
-    <Copy color="red" small={true}>
+    <Copy color="red" size={Size.Small}>
       Small Copy – Sans Serif | font-size: 12px | line-height: 18px | defined color
     </Copy>
   </Box>

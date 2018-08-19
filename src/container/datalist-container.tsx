@@ -1,13 +1,23 @@
 import * as React from 'react';
+import Box, { AlignItems, JustifyContent } from '../components/box/box';
+import Copy, { Size } from '../components/copy/copy';
 import DataListComponent from '../components/datalist/datalist';
 import DataRow from '../components/datarow/datarow';
 
-export interface InputContainerProps {
-  data: string[];
-  onClick?: React.MouseEventHandler<HTMLElement>;
+
+export interface DataProps {
+  id: number
+  timestamp: number
+  value: string
 }
 
-export class Input extends React.Component<InputContainerProps, {data: string[]}> {
+export interface DataListProps {
+  data: DataProps[];
+  onClick?: React.MouseEventHandler<HTMLElement>;
+  className?: string;
+}
+
+export class Input extends React.Component<DataListProps, {data: string[]}> {
 
   public state: any = {
     data: this.props.data || []
@@ -16,10 +26,26 @@ export class Input extends React.Component<InputContainerProps, {data: string[]}
   public render (): JSX.Element {
 
     return (
-      <DataListComponent>
-        {this.props.data.map((item:any, index) =>
-          <DataRow data={item} key={index} onClick={this.props.onClick}/>
-        )}
+      <DataListComponent className={this.props.className}>
+        {this.props.data.length > 0 ? 
+          <React.Fragment>
+            <Copy bold={true} size={Size.Large}>
+              Your open Tasks
+            </Copy>
+
+            {this.props.data.map((item:any) =>
+              <DataRow data={item.value} id={item.id} key={item.id} onClick={this.props.onClick}/>
+            )}
+
+          </React.Fragment>
+        : 
+          <Box flex={true} height="50vh" col={true} alignItems={AlignItems.Center} justifyContent={JustifyContent.Center}>
+            <Copy color="#cccccc" size={Size.Large} centered={true}>
+              &#128588;<br />
+              Nothing to do, yay!
+            </Copy>
+          </Box>
+        }
       </DataListComponent>
     );
   }

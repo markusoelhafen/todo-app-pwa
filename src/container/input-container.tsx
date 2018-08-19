@@ -7,6 +7,7 @@ export interface InputContainerProps {
   placeholder?: string;
   onKeyPress?: React.KeyboardEventHandler<HTMLInputElement>;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  className?: string;
 }
 
 export class Input extends React.Component<InputContainerProps, {value: string}> {
@@ -18,6 +19,7 @@ export class Input extends React.Component<InputContainerProps, {value: string}>
   public render (): JSX.Element {
     return (
       <InputComponent 
+        className={this.props.className}
         id={this.props.id}
         onChange={this.props.onChange}
         onKeyPress={this.props.onKeyPress}

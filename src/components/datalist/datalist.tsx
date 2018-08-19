@@ -4,13 +4,13 @@ import styled from 'styled-components';
 export interface DataProps {
   children?: React.ReactNode;
   data?: object;
+  className?: string;
 }
 
 const StyledDataContainer = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  width: 300px;
   margin-top: 30px;
 `;
 
