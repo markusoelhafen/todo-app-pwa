@@ -24,12 +24,17 @@ injectGlobal`
     padding: 0;
     font-family: Renner, Futura, Verdana, Arial, sans-serif;
   }
+
+  html, body, #root {
+    height: 100%;
+    width: 100%;
+  }
 `;
 
 const StyledMainFrame = styled(Frame)`
   @media (max-width: 720px) {
     justify-content: space-between;
-    height: 100vh;
+    height: 100%;
   }
 `;
 
