@@ -1,4 +1,5 @@
 # &#128221; Memo – Task List PWA
+Disclaimer: The app is no PWA yet ;)
 
 ## &#129335; What is this all about?
 
