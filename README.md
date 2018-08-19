@@ -38,12 +38,17 @@ via ssh: `git clone git@github.com:markusoelhafen/todo-app-pwa.git`
 
 ## &#127937; Planned next steps
 
+- [ ] Might need to clear up space, I have the feeling styling shouldn't happen in there
 - [ ] Add real uuid to created todos
 - [ ] Delete ToDo based on uuid
 - [ ] Store ToDos somewhere (mobx, redux, local storage, others?)
-- [x] Validate what has been entered (eg. no empty values)
 - [ ] Better validation what has been entered (eg. not only spaces)
 
 ## &#127937; Next milestones
 - [ ] Persist data on local machine
 - [ ] Make app available offline (pwa)
+
+---
+
+## Done
+- [x] Validate what has been entered (eg. no empty values)
