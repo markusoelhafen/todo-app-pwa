@@ -13,6 +13,7 @@ const StyledHeader = styled.div`
   width: 100%;
   margin-bottom: 30px;
   box-shadow: 0px 2px 6px 0 rgba(0,0,0,.3);
+  box-sizing: border-box;
 `;
 
 const Header: React.StatelessComponent<HeaderProps> = (props): JSX.Element => (
