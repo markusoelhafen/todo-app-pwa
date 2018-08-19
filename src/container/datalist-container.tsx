@@ -41,7 +41,7 @@ export class Input extends React.Component<DataListProps, {data: string[]}> {
         : 
           <Box flex={true} height="50vh" col={true} alignItems={AlignItems.Center} justifyContent={JustifyContent.Center}>
             <Copy color="#cccccc" size={Size.Large} centered={true}>
-              🙌<br />
+              &#128588;<br />
               Nothing to do, yay!
             </Copy>
           </Box>

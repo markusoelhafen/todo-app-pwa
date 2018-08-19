@@ -70,7 +70,7 @@ class App extends React.Component {
   public render() {
     return (
       <StyledMainFrame centered={true}>
-        <Header title="✏️ Memo" />
+        <Header title="&#128221; Memo" />
         <StyledInputFrame maxWidth={MaxWidth.half}>
           <StyledInput
             placeholder="New Task"
