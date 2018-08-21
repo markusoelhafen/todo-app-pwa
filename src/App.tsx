@@ -53,12 +53,6 @@ const StyledInput = styled(Input)`
   }
 `;
 
-const StyledTaskList = styled(TaskListContainer)`
-  @media (max-width: 720px) {
-    width: 95%;
-  }
-`;
-
 class App extends React.Component {
 
   public state: AppState = {
@@ -77,7 +71,7 @@ class App extends React.Component {
             onKeyPress={e => this.addToDo(e)}
             value={this.state.value}
           />
-          <StyledTaskList 
+          <TaskListContainer
             data={this.state.data} 
             onClick={e => this.deleteToDo(e)}
           />

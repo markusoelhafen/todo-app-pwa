@@ -12,6 +12,10 @@ const StyledTaskContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 30px;
+
+  @media (max-width: 720px) {
+    width: 95%;
+  }
 `;
 
 
