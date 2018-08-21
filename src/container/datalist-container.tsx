@@ -4,7 +4,6 @@ import Copy, { Size } from '../components/copy/copy';
 import DataListComponent from '../components/datalist/datalist';
 import DataRow from '../components/datarow/datarow';
 
-
 export interface DataProps {
   id: number
   timestamp: number
@@ -41,7 +40,7 @@ export class Input extends React.Component<DataListProps, {data: string[]}> {
         : 
           <Box flex={true} height="50vh" col={true} alignItems={AlignItems.Center} justifyContent={JustifyContent.Center}>
             <Copy color="#cccccc" size={Size.Large} centered={true}>
-              &#128588;<br />
+              🙌<br />
               Nothing to do, yay!
             </Copy>
           </Box>

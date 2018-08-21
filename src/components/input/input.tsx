@@ -19,6 +19,7 @@ const StyledInput = styled.input`
   font-weight: 100;
   outline: none;
   min-width: 300px;
+  width: 100%;
   color: black;
 
   &:focus{

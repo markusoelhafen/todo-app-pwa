@@ -48,7 +48,6 @@ const StyledInputFrame = styled(Frame)`
 
 const StyledInput = styled(Input)`
   order: 1;
-  width: 100%;
   @media (min-width: 720px) {
     order: 0;
   }
@@ -70,7 +69,7 @@ class App extends React.Component {
   public render() {
     return (
       <StyledMainFrame centered={true}>
-        <Header title="&#128221; Memo" />
+        <Header title="✏️ Memo" />
         <StyledInputFrame maxWidth={MaxWidth.half}>
           <StyledInput
             placeholder="New Task"
@@ -87,7 +86,8 @@ class App extends React.Component {
     );
   }
 
-  private addToDo(e: any) {  
+  private addToDo(e: any) {
+
     // only write data when pressing enter & don't allow empty values
     if (e.key === 'Enter' && this.state.value !== "") {
       
@@ -98,7 +98,8 @@ class App extends React.Component {
       }
 
       // push input value to data array
-      this.state.data.push(newData);
+      this.state.data.push(newData); // !!! DONT PUSH ON STATE
+
       this.setState(this.state.data);
       console.log(this.state.data)
 
