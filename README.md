@@ -43,6 +43,7 @@ cd todo-app-pwa
 
 ## &#127937; Planned next steps
 
+- [ ] Change any types to real types
 - [ ] Might need to clean up App.tsx, I have the feeling styling shouldn't happen in there
 - [ ] Add real uuid to created todos
 - [ ] Delete ToDo based on uuid
