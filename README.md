@@ -19,7 +19,11 @@ Also I'll document everything as good as possible and comment on the code.
 ## &#128640; Get it running
 
 ### 1. Clone repository
-via ssh: `git clone git@github.com:markusoelhafen/todo-app-pwa.git`
+via ssh: 
+```
+git clone git@github.com:markusoelhafen/todo-app-pwa.git
+cd todo-app-pwa
+```
 
 ### 2. Add dependecies:
 `yarn install`
