@@ -2,8 +2,8 @@ import * as React from 'react';
 import styled, { injectGlobal } from 'styled-components';
 import Frame, { MaxWidth } from './components/frame/frame';
 import Header from './components/header/header';
-import DataListContainer from './container/datalist-container';
 import Input from './container/input-container';
+import TaskListContainer from './container/tasklist-container';
 
 export interface AppState {
   data?: DataProps[];
@@ -53,7 +53,7 @@ const StyledInput = styled(Input)`
   }
 `;
 
-const StyledDataList = styled(DataListContainer)`
+const StyledTaskList = styled(TaskListContainer)`
   @media (max-width: 720px) {
     width: 95%;
   }
@@ -77,7 +77,7 @@ class App extends React.Component {
             onKeyPress={e => this.addToDo(e)}
             value={this.state.value}
           />
-          <StyledDataList 
+          <StyledTaskList 
             data={this.state.data} 
             onClick={e => this.deleteToDo(e)}
           />

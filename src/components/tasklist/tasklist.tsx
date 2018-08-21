@@ -1,13 +1,13 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-export interface DataProps {
+export interface TaskListProps {
   children?: React.ReactNode;
   data?: object;
   className?: string;
 }
 
-const StyledDataContainer = styled.div`
+const StyledTaskContainer = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -15,10 +15,10 @@ const StyledDataContainer = styled.div`
 `;
 
 
-const DataList: React.StatelessComponent<DataProps>= (props): JSX.Element => (
-  <StyledDataContainer {...props}>
+const TaskList: React.StatelessComponent<TaskListProps>= (props): JSX.Element => (
+  <StyledTaskContainer {...props}>
     {props.children}
-  </StyledDataContainer>
+  </StyledTaskContainer>
 );
 
-export default DataList;
+export default TaskList;
