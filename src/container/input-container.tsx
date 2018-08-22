@@ -1,31 +1,20 @@
 import * as React from 'react';
-import InputComponent from '../components/input/input';
+import InputComponent from '../components/taskinput/taskinput';
 
 export interface InputContainerProps {
   id?: string;
   value?: string;
   placeholder?: string;
-  onKeyPress?: React.KeyboardEventHandler<HTMLInputElement>;
+  onSubmit?: React.FormEventHandler<HTMLFormElement>;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  className?: string;
 }
 
-export class Input extends React.Component<InputContainerProps, {value: string}> {
-  
-  public state = {
-    value: this.props.value || ""
-  }
-
+export class Input extends React.Component<InputContainerProps> {
   public render (): JSX.Element {
     return (
-      <InputComponent 
-        className={this.props.className}
-        id={this.props.id}
-        onChange={this.props.onChange}
-        onKeyPress={this.props.onKeyPress}
-        placeholder={this.props.placeholder}
-        value={this.props.value}
-      />
+      <form onSubmit={this.props.onSubmit}>
+        <InputComponent {...this.props}/>
+      </form>
     );
   }
 

@@ -25,11 +25,7 @@ const StyledEmptyList = styled.div`
   justify-content: center;
 `;
 
-export class Tasklist extends React.Component<DataListProps, {data: string[]}> {
-
-  public state: any = {
-    data: this.props.data || []
-  }
+export class Tasklist extends React.Component<DataListProps> {
 
   public render (): JSX.Element {
 
