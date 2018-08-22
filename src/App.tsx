@@ -6,8 +6,8 @@ import Input from './container/input-container';
 import TaskListContainer from './container/tasklist-container';
 
 export interface AppState {
-  data?: DataProps[];
-  value?: string;
+  data: DataProps[];
+  value: string;
 }
 
 export interface DataProps {
@@ -39,21 +39,14 @@ const StyledMainFrame = styled(Frame)`
 `;
 
 const StyledInputFrame = styled(Frame)`
-@media (max-width: 720px) {
-  justify-content: space-between;
-  flex-grow: 1
-  align-items: center;
-}
-`;
-
-const StyledInput = styled(Input)`
-  order: 1;
-  @media (min-width: 720px) {
-    order: 0;
+  @media (max-width: 720px) {
+    justify-content: space-between;
+    flex-grow: 1
+    align-items: center;
   }
 `;
 
-class App extends React.Component {
+class App extends React.Component<{}, AppState> {
 
   public state: AppState = {
     data: [],
@@ -65,10 +58,10 @@ class App extends React.Component {
       <StyledMainFrame centered={true}>
         <Header title="✏️ Memo" />
         <StyledInputFrame maxWidth={MaxWidth.half}>
-          <StyledInput
+          <Input
             placeholder="New Task"
             onChange={e => this.handleChange(e)}
-            onKeyPress={e => this.addToDo(e)}
+            onSubmit={e => this.handleSubmit(e)}
             value={this.state.value}
           />
           <TaskListContainer
@@ -80,44 +73,44 @@ class App extends React.Component {
     );
   }
 
-  private addToDo(e: any) {
+  private handleSubmit(e: React.FormEvent<HTMLElement>) {
+    e.preventDefault()
 
     // only write data when pressing enter & don't allow empty values
-    if (e.key === 'Enter' && this.state.value !== "") {
-      
+    if (this.state.value !== '') {  
       const newData: DataProps = {
         id: Date.now(), // use Date.now() as temporary uuid
         timestamp: Date.now(), // placeholder for "created on date, time"
         value: this.state.value
       }
 
-      // push input value to data array
-      this.state.data.push(newData); // !!! DONT PUSH ON STATE
-
-      this.setState(this.state.data);
-      console.log(this.state.data)
-
-      // empty input field
-      this.state.value="";
+      this.setState({
+        data: [...this.state.data, newData],
+        value: ''
+      });
     }
   }
 
-  private deleteToDo(e: any) {
+  private deleteToDo(e: React.MouseEvent<HTMLElement>) {
     // transform id from string to number
-    const targetId = Number(e.target.id)
-
-    this.state.data = this.state.data.filter((item: any) => targetId !== item.id)
+    const targetId = Number((e.target as HTMLElement).id)
 
     // update state
-    this.setState(this.state.data)
+    this.setState({
+      data: this.state.data.filter(item => targetId !== item.id),
+      value: this.state.value
+    })
   }
 
-  private handleChange(e: any) {
+  private handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     // get value from change event on input
-    const value = e.target;
+    const value = e.target.value;
 
     // update state of input container
-    this.setState(value);
+    this.setState({
+      data: this.state.data,
+      value
+    });
   }
 
 }
