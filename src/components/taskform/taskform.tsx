@@ -9,6 +9,7 @@ export interface TaskFormProps extends InputProps{
 const StyledFormWrapper = styled.form`
   display: flex;
   justify-content: center;
+  width: 50%;
 
   @media (max-width: 720px) {
     position: fixed;
@@ -18,8 +19,6 @@ const StyledFormWrapper = styled.form`
 `;
 
 const StyledInput = styled(Input)`
-  width: 50%;
-  
   @media (max-width: 720px) {
     border-radius: 0;
     border: 0;

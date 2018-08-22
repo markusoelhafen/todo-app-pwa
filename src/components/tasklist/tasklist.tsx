@@ -9,9 +9,9 @@ export interface TaskListProps {
 
 const StyledTaskContainer = styled.div`
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
+  display: block;
   margin-top: 30px;
+  width: 50%;
 
   @media (max-width: 720px) {
     width: 95%;
