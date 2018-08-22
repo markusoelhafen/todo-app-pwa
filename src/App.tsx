@@ -1,6 +1,6 @@
 import * as React from 'react';
-import styled, { injectGlobal } from 'styled-components';
-import Frame, { MaxWidth } from './components/frame/frame';
+import { injectGlobal } from 'styled-components';
+// import Frame from './components/frame/frame';
 import Header from './components/header/header';
 import Input from './container/input-container';
 import TaskListContainer from './container/tasklist-container';
@@ -31,21 +31,6 @@ injectGlobal`
   }
 `;
 
-const StyledMainFrame = styled(Frame)`
-  @media (max-width: 720px) {
-    justify-content: space-between;
-    height: 100%;
-  }
-`;
-
-const StyledInputFrame = styled(Frame)`
-  @media (max-width: 720px) {
-    justify-content: space-between;
-    flex-grow: 1
-    align-items: center;
-  }
-`;
-
 class App extends React.Component<{}, AppState> {
 
   public state: AppState = {
@@ -55,21 +40,19 @@ class App extends React.Component<{}, AppState> {
   
   public render() {
     return (
-      <StyledMainFrame centered={true}>
+      <div>
         <Header title="✏️ Memo" />
-        <StyledInputFrame maxWidth={MaxWidth.half}>
-          <Input
-            placeholder="New Task"
-            onChange={e => this.handleChange(e)}
-            onSubmit={e => this.handleSubmit(e)}
-            value={this.state.value}
-          />
-          <TaskListContainer
-            data={this.state.data} 
-            onClick={e => this.deleteToDo(e)}
-          />
-        </StyledInputFrame>
-      </StyledMainFrame>
+        <Input
+          placeholder="New Task"
+          onChange={e => this.handleChange(e)}
+          onSubmit={e => this.handleSubmit(e)}
+          value={this.state.value}
+        />
+        <TaskListContainer
+          data={this.state.data} 
+          onClick={e => this.deleteToDo(e)}
+        />
+      </div>
     );
   }
 
