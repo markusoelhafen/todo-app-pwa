@@ -1,20 +1,15 @@
 import * as React from 'react';
-import InputComponent from '../components/taskinput/taskinput';
+import { InputProps } from '../components/input/input';
+import TaskForm from '../components/taskform/taskform';
 
-export interface InputContainerProps {
-  id?: string;
-  value?: string;
-  placeholder?: string;
+export interface InputContainerProps extends InputProps{
   onSubmit?: React.FormEventHandler<HTMLFormElement>;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 export class Input extends React.Component<InputContainerProps> {
   public render (): JSX.Element {
     return (
-      <form onSubmit={this.props.onSubmit}>
-        <InputComponent {...this.props}/>
-      </form>
+      <TaskForm {...this.props}/>
     );
   }
 
