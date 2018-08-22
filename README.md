@@ -43,6 +43,14 @@ cd todo-app-pwa
 
 ## &#127937; Planned next steps
 
+- [ ] Check Immer / MobX
+  - Übergeordneter Store (verbindung app)
+  - Tasklist store
+  - Task Store
+  - Kein Löschen -> Flag -> nicht sichtbar
+- [ ] Prettier
+- [ ] Listen on Submit
+- [ ] Store auf tiefster container ebene injecten
 - [ ] Change any types to real types
 - [ ] Might need to clean up App.tsx, I have the feeling styling shouldn't happen in there
 - [ ] Add real uuid to created todos
