@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Box, { AlignItems, JustifyContent } from '../components/box/box';
+import styled from 'styled-components';
 import Copy, { Size } from '../components/copy/copy';
 import Task from '../components/task/task';
 import TaskListComponent from '../components/tasklist/tasklist';
@@ -15,6 +15,15 @@ export interface DataListProps {
   onClick?: React.MouseEventHandler<HTMLElement>;
   className?: string;
 }
+
+const StyledEmptyList = styled.div`
+  display: flex;
+  height: 50vh;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+`;
 
 export class Tasklist extends React.Component<DataListProps, {data: string[]}> {
 
@@ -38,12 +47,12 @@ export class Tasklist extends React.Component<DataListProps, {data: string[]}> {
 
           </React.Fragment>
         : 
-          <Box flex={true} height="50vh" col={true} alignItems={AlignItems.Center} justifyContent={JustifyContent.Center}>
+          <StyledEmptyList>
             <Copy color="#cccccc" size={Size.Large} centered={true}>
               🙌<br />
               Nothing to do, yay!
             </Copy>
-          </Box>
+          </StyledEmptyList>
         }
       </TaskListComponent>
     );
