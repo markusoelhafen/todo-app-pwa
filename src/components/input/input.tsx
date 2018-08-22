@@ -7,7 +7,6 @@ export interface InputProps {
   onKeyPress?: React.KeyboardEventHandler<HTMLInputElement>;
   placeholder?: string;
   value?: string;
-  className?: any;
 }
 
 const StyledInput = styled.input`
@@ -30,16 +29,13 @@ const StyledInput = styled.input`
 
 
 const Input: React.StatelessComponent<InputProps> = (props): JSX.Element => (
-  <React.Fragment>
-    <StyledInput
-      className={props.className}
-      id={props.id}
-      onChange={props.onChange}
-      onKeyPress={props.onKeyPress}
-      placeholder={props.placeholder}
-      value={props.value} 
-    />
-  </React.Fragment>
+  <StyledInput
+    id={props.id}
+    onChange={props.onChange}
+    onKeyPress={props.onKeyPress}
+    placeholder={props.placeholder}
+    value={props.value}
+  />
 );
 
 export default Input;
