@@ -1,5 +1,4 @@
 import * as React from 'react';
-import styled from 'styled-components';
 import Copy, { Size } from '../components/copy/copy';
 import Task from '../components/task/task';
 import TaskListComponent from '../components/tasklist/tasklist';
@@ -15,15 +14,6 @@ export interface DataListProps {
   onClick?: React.MouseEventHandler<HTMLElement>;
   className?: string;
 }
-
-const StyledEmptyList = styled.div`
-  display: flex;
-  height: 50vh;
-  flex-direction: column;
-  flex-grow: 1;
-  align-items: center;
-  justify-content: center;
-`;
 
 export class Tasklist extends React.Component<DataListProps> {
 
@@ -43,12 +33,10 @@ export class Tasklist extends React.Component<DataListProps> {
 
           </React.Fragment>
         : 
-          <StyledEmptyList>
-            <Copy color="#cccccc" size={Size.Large} centered={true}>
-              🙌<br />
-              Nothing to do, yay!
-            </Copy>
-          </StyledEmptyList>
+          <Copy color="#cccccc" size={Size.Large} centered={true}>
+            🙌<br />
+            Nothing to do, yay!
+          </Copy>
         }
       </TaskListComponent>
     );
