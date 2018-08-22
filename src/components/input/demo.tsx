@@ -1,5 +1,4 @@
 import * as React from "react";
-import Box, { AlignItems, JustifyContent } from "../box/box";
 import Input from "./input";
 
 export interface DemoInputProps {
@@ -16,14 +15,14 @@ class DemoInput extends React.Component<DemoInputProps, {value: string}> {
 
   public render (): JSX.Element {
     return (
-      <Box flex={true} height="100vh" alignItems={AlignItems.Center} justifyContent={JustifyContent.Center}>
+      <div>
         <Input 
           id={this.props.id}
           onChange={e => this.handleChange(e)}
           placeholder="Type away"
           value={this.state.value}
         />
-      </Box>
+      </div>
     );
   }
 
