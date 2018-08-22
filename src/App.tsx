@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { injectGlobal } from 'styled-components';
-// import Frame from './components/frame/frame';
+import Frame from './components/frame/frame';
 import Header from './components/header/header';
 import Input from './container/input-container';
 import TaskListContainer from './container/tasklist-container';
@@ -15,6 +15,21 @@ export interface DataProps {
   timestamp: number
   value: string
 }
+
+const demoData = [
+  {id: 1, timestamp: 1234, value: "Memo 1"},
+  {id: 2, timestamp: 1234, value: "Memo 2"},
+  {id: 3, timestamp: 1234, value: "Memo 3"},
+  {id: 4, timestamp: 1234, value: "Memo 4"},
+  {id: 5, timestamp: 1234, value: "Memo 5"},
+  {id: 6, timestamp: 1234, value: "Memo 6"},
+  {id: 7, timestamp: 1234, value: "Memo 7"},
+  {id: 8, timestamp: 1234, value: "Memo 8"},
+  {id: 9, timestamp: 1234, value: "Memo 9"},
+  {id: 10, timestamp: 1234, value: "Memo 10"},
+  {id: 11, timestamp: 1234, value: "Memo 11"},
+  {id: 12, timestamp: 1234, value: "Memo 12"},
+]
 
 // tslint:disable-next-line:no-unused-expression
 injectGlobal`
@@ -34,13 +49,13 @@ injectGlobal`
 class App extends React.Component<{}, AppState> {
 
   public state: AppState = {
-    data: [],
+    data: demoData,
     value: ""
   }
   
   public render() {
     return (
-      <div>
+      <Frame>
         <Header title="✏️ Memo" />
         <Input
           placeholder="New Task"
@@ -52,7 +67,7 @@ class App extends React.Component<{}, AppState> {
           data={this.state.data} 
           onClick={e => this.deleteToDo(e)}
         />
-      </div>
+      </Frame>
     );
   }
 
