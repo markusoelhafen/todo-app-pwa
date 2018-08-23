@@ -2,7 +2,10 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 export interface ButtonProps {
-  children?: React.ReactNode;
+  /**
+   * Defines the content of the Button
+   */
+  children: React.ReactNode
 }
 
 const StyledButton = styled.div`

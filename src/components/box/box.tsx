@@ -16,7 +16,7 @@ export interface BoxProps {
   justifyContent?: JustifyContent;
   order?: string;
   shrink?: string;
-  width?: string;
+  width: string;
   wrap?: boolean;
 }
 
