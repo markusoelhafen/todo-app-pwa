@@ -22,7 +22,7 @@ export class Tasklist extends React.Component<DataListProps> {
     return (
       <TaskListComponent className={this.props.className}>
         {this.props.data.length > 0 ? 
-          <React.Fragment>
+          <>
             <Copy bold={true} size={Size.Large}>
               Your open Tasks
             </Copy>
@@ -31,7 +31,7 @@ export class Tasklist extends React.Component<DataListProps> {
               <Task data={item.value} id={item.id} key={item.id} onClick={this.props.onClick}/>
             )}
 
-          </React.Fragment>
+          </>
         : 
           <Copy color="#cccccc" size={Size.Large} centered={true}>
             🙌<br />
