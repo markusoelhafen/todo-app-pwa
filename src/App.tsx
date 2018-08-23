@@ -1,13 +1,13 @@
 import * as React from 'react';
-import styled, { injectGlobal } from 'styled-components';
-import Frame, { MaxWidth } from './components/frame/frame';
+import { injectGlobal } from 'styled-components';
+import Frame from './components/frame/frame';
 import Header from './components/header/header';
-import DataListContainer from './container/datalist-container';
 import Input from './container/input-container';
+import TaskListContainer from './container/tasklist-container';
 
 export interface AppState {
-  data?: DataProps[];
-  value?: string;
+  data: DataProps[];
+  value: string;
 }
 
 export interface DataProps {
@@ -15,6 +15,21 @@ export interface DataProps {
   timestamp: number
   value: string
 }
+
+const demoData = [
+  {id: 1, timestamp: 1234, value: "Memo 1"},
+  {id: 2, timestamp: 1234, value: "Memo 2"},
+  {id: 3, timestamp: 1234, value: "Memo 3"},
+  {id: 4, timestamp: 1234, value: "Memo 4"},
+  {id: 5, timestamp: 1234, value: "Memo 5"},
+  {id: 6, timestamp: 1234, value: "Memo 6"},
+  {id: 7, timestamp: 1234, value: "Memo 7"},
+  {id: 8, timestamp: 1234, value: "Memo 8"},
+  {id: 9, timestamp: 1234, value: "Memo 9"},
+  {id: 10, timestamp: 1234, value: "Memo 10"},
+  {id: 11, timestamp: 1234, value: "Memo 11"},
+  {id: 12, timestamp: 1234, value: "Memo 12"},
+]
 
 // tslint:disable-next-line:no-unused-expression
 injectGlobal`
@@ -31,99 +46,69 @@ injectGlobal`
   }
 `;
 
-const StyledMainFrame = styled(Frame)`
-  @media (max-width: 720px) {
-    justify-content: space-between;
-    height: 100%;
-  }
-`;
-
-const StyledInputFrame = styled(Frame)`
-@media (max-width: 720px) {
-  justify-content: space-between;
-  flex-grow: 1
-  align-items: center;
-}
-`;
-
-const StyledInput = styled(Input)`
-  order: 1;
-  @media (min-width: 720px) {
-    order: 0;
-  }
-`;
-
-const StyledDataList = styled(DataListContainer)`
-  @media (max-width: 720px) {
-    width: 95%;
-  }
-`;
-
-class App extends React.Component {
+class App extends React.Component<{}, AppState> {
 
   public state: AppState = {
-    data: [],
+    data: demoData,
     value: ""
   }
   
   public render() {
     return (
-      <StyledMainFrame centered={true}>
+      <Frame>
         <Header title="✏️ Memo" />
-        <StyledInputFrame maxWidth={MaxWidth.half}>
-          <StyledInput
-            placeholder="New Task"
-            onChange={e => this.handleChange(e)}
-            onKeyPress={e => this.addToDo(e)}
-            value={this.state.value}
-          />
-          <StyledDataList 
-            data={this.state.data} 
-            onClick={e => this.deleteToDo(e)}
-          />
-        </StyledInputFrame>
-      </StyledMainFrame>
+        <Input
+          placeholder="New Task"
+          onChange={e => this.handleChange(e)}
+          onSubmit={e => this.handleSubmit(e)}
+          value={this.state.value}
+        />
+        <TaskListContainer
+          data={this.state.data} 
+          onClick={e => this.deleteToDo(e)}
+        />
+      </Frame>
     );
   }
 
-  private addToDo(e: any) {
+  private handleSubmit(e: React.FormEvent<HTMLElement>) {
+    e.preventDefault()
 
     // only write data when pressing enter & don't allow empty values
-    if (e.key === 'Enter' && this.state.value !== "") {
-      
+    if (this.state.value !== '') {  
       const newData: DataProps = {
         id: Date.now(), // use Date.now() as temporary uuid
         timestamp: Date.now(), // placeholder for "created on date, time"
         value: this.state.value
       }
 
-      // push input value to data array
-      this.state.data.push(newData); // !!! DONT PUSH ON STATE
-
-      this.setState(this.state.data);
-      console.log(this.state.data)
-
-      // empty input field
-      this.state.value="";
+      this.setState({
+        data: [...this.state.data, newData],
+        value: ''
+      });
     }
   }
 
-  private deleteToDo(e: any) {
+  private deleteToDo(e: React.MouseEvent<HTMLElement>) {
     // transform id from string to number
-    const targetId = Number(e.target.id)
-
-    this.state.data = this.state.data.filter((item: any) => targetId !== item.id)
+    const targetId = Number((e.target as HTMLElement).id)
 
     // update state
-    this.setState(this.state.data)
+    this.setState({
+      data: this.state.data.filter(item => targetId !== item.id),
+      value: this.state.value
+    })
   }
 
-  private handleChange(e: any) {
+  private handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     // get value from change event on input
-    const value = e.target;
+    const value = e.target.value;
 
     // update state of input container
-    this.setState(value);
+    this.setState({
+      data: this.state.data,
+      value
+    });
   }
 
 }
