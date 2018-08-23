@@ -2,13 +2,13 @@ import * as React from 'react';
 import styled from 'styled-components';
 import {Space, SpaceSize} from '../space/space'
 
-export interface DataProps {
+export interface TaskProps {
   data: string;
   id: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
-const StyledDataContainer = styled.div`
+const StyledTaskContainer = styled.div`
   box-sizing: border-box;
   display: flex;
   margin-bottom: ${Space(SpaceSize.Size200)};
@@ -16,7 +16,7 @@ const StyledDataContainer = styled.div`
   align-items: center;
 `;
   
-const StyledDataField = styled.div`
+const StyledTaskField = styled.div`
   font-size: ${Space(SpaceSize.Size500)};
   line-height: ${Space(SpaceSize.Size700)};
   min-width: ${Space(SpaceSize.Size700)};
@@ -36,13 +36,13 @@ const StyledCheckbox = styled.div`
   }
 `;
 
-const DataRow: React.StatelessComponent<DataProps>= (props): JSX.Element => (
-  <StyledDataContainer id={props.id}>
+const Task: React.StatelessComponent<TaskProps>= (props): JSX.Element => (
+  <StyledTaskContainer>
     <StyledCheckbox id={props.id} onClick={props.onClick}/>
-      <StyledDataField>
+      <StyledTaskField>
         {props.data}
-      </StyledDataField>
-  </StyledDataContainer>
+      </StyledTaskField>
+  </StyledTaskContainer>
 );
 
-export default DataRow;
+export default Task;

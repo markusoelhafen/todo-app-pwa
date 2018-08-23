@@ -1,7 +1,7 @@
 {
-  "name": "box",
+  "name": "task",
   "version": "1.0.0",
   "patternplate": {
-    "displayName": "Box"
+    "displayName": "Task"
   } 
 }
