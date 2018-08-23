@@ -27,10 +27,10 @@ const StyledInput = styled(Input)`
   }
 `;
 
-const TaskForm: React.StatelessComponent<TaskFormProps> = (props): JSX.Element => (
+const taskform: React.StatelessComponent<TaskFormProps> = (props): JSX.Element => (
   <StyledFormWrapper onSubmit={props.onSubmit}>
     <StyledInput {...props}/>
   </StyledFormWrapper>
 );
 
-export default TaskForm;
+export default taskform;

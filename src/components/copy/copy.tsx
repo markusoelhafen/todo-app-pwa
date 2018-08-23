@@ -35,10 +35,10 @@ const StyledCopy = styled.div`
   }};
 `;
 
-const Copy: React.StatelessComponent<CopyProps> = (props): JSX.Element => (
+const copy: React.StatelessComponent<CopyProps> = (props): JSX.Element => (
   <StyledCopy color={props.color} size={props.size} bold={props.bold} centered={props.centered}>
     {props.children}
   </StyledCopy>
 ); 
 
-export default Copy;
+export default copy;
