@@ -18,11 +18,10 @@ const StyledTaskContainer = styled.div`
   }
 `;
 
-
-const tasklist: React.StatelessComponent<TaskListProps>= (props): JSX.Element => (
+export const TaskList: React.StatelessComponent<TaskListProps>= (props): JSX.Element => (
   <StyledTaskContainer {...props}>
     {props.children}
   </StyledTaskContainer>
 );
 
-export default tasklist;
+export default TaskList;

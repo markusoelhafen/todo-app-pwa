@@ -16,8 +16,8 @@ const StyledHeader = styled.div`
   box-sizing: border-box;
 `;
 
-const header: React.StatelessComponent<HeaderProps> = (props): JSX.Element => (
+export const Header: React.StatelessComponent<HeaderProps> = (props): JSX.Element => (
   <StyledHeader>{props.title}</StyledHeader>
 )
 
-export default header;
+export default Header;

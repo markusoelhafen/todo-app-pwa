@@ -23,10 +23,10 @@ const StyledFrame = styled.div`
   height: 100%;
 `;
 
-const frame: React.StatelessComponent<FrameProps> = (props): JSX.Element => (
+export const Frame: React.StatelessComponent<FrameProps> = (props): JSX.Element => (
   <StyledFrame>
     {props.children}
   </StyledFrame>
 )
 
-export default frame;
+export default Frame;

@@ -25,8 +25,8 @@ const StyledInput = styled.input`
 `;
 
 
-const input: React.StatelessComponent<InputProps> = (props): JSX.Element => (
+export const Input: React.StatelessComponent<InputProps> = (props): JSX.Element => (
   <StyledInput {...props} />
 );
 
-export default input;
+export default Input;
