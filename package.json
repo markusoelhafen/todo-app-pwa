@@ -8,7 +8,7 @@
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
-    "watch:components": "yarn docz dev",
+    "docs": "yarn docz dev",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },

@@ -14,7 +14,7 @@ Also I'll document everything as good as possible and comment on the code.
 - create-react-app
 - Typescript
 - styled-components
-- docz (thanks to @frederikreiss)
+- docz (thx @frederikreiss)
 
 ## 🚀 Get it running
 
@@ -23,21 +23,26 @@ via ssh:
 ```
 git clone git@github.com:markusoelhafen/todo-app-pwa.git
 cd todo-app-pwa
+yarn install
 ```
 
-### 2. Add dependecies:
-`yarn install`
+### 2. Launch Application:
+```
+yarn start
+```
 
-### 3. Start Application:
-`yarn start`
-
-### 4. Start Component Library (optional):
-`yarn watch:components`
+### 3. Launch Documentation (optional):
+```
+yarn docs
+```
 
 ## 📆 What happened so far
 
-#### Latest Update - Aug 23, 2018
-- After a code review with @marionebl (thx!):
+#### Latest Update - Aug 27, 2018
+- [@frederikreiss](https://github.com/frederikreiss) implemented docz to display and document components, thx dude 🙏
+
+#### Aug 23, 2018
+- After a code review with [@marionebl](https://github.com/marionebl) (thx!):
   - Optimized how the state is handled within `this.setState()`, as I haven't passed the full object to the state. 
   - Changed the input and listening to `onKeypress`: The input is now wrapped in a tasklistinput that uses `<form>` so I can listen to `onSubmit`, which should better work an all devices. (Enter Key is not available on all devices)
   - Cleaned up unneeded component and renamed them.
@@ -52,7 +57,7 @@ cd todo-app-pwa
 
 - [ ] Decide on a immutable state handler (MobX, Immer)
 - [ ] Model the state
-  - Tips from @marionebl:
+  - Tips from [@marionebl](https://github.com/marionebl):
     - Create a main state, that connects to the App
     - Create a store for the tasklist
     - Create a store for each task
@@ -76,3 +81,10 @@ cd todo-app-pwa
 - [x] Might need to clean up App.tsx, I have the feeling styling shouldn't happen in there
 - [x] Listen on Submit when adding a task
 - [x] Validate what has been entered (eg. no empty values)
+
+---
+
+## 🙌 Friendly helpers on the way
+🙏 [@marionebl](https://github.com/marionebl)
+
+🙏 [@frederikreiss](https://github.com/frederikreiss)
