@@ -5,6 +5,7 @@ menu: Components
 
 import { Playground, PropsTable } from 'docz'
 import {TaskList} from './tasklist'
+import {Task} from '../task/task'
 
 # Tasklist
 
@@ -21,5 +22,9 @@ Lorem
 ## Basic usage
 
 <Playground>
-  <TaskList data="Demo Data" />
+  <TaskList data="Demo Data">
+   <Task id="demo" data="Demo Data #1" />
+   <Task id="demo_two" data="Demo Data #2" />
+   <Task id="demo_three" data="Demo Data #3" />
+  </TaskList>
 </Playground>
