@@ -4,18 +4,15 @@ menu: Components
 ---
 
 import { Playground, PropsTable } from 'docz'
-import {Copy} from './copy'
+import {Copy, Size} from './copy'
 
 # Copy
 
-Copies make common actions more obvious and help users more easily perform them. Buttons use labels and sometimes icons to communicate the action that will occur when the user touches them.
+Copies communicate the action that is needed and for general information.
 
-### Best practices
-
-- Group copies logically into sets based on usage and importance.
-- Ensure that copy actions are clear and consistent.
-- The main action of a group set can be a primary copy.
-- Select a single copy variation and do not mix them.
+## Best practices
+- You can highlight important parts by making it bold for example.
+- Use the large Copy for section headlines
 
 ## Properties
 
@@ -24,5 +21,10 @@ Copies make common actions more obvious and help users more easily perform them.
 ## Basic usage
 
 <Playground>
-  <Copy>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua</Copy>
+  <Copy>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.</Copy>
+  <Copy centered>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.</Copy>
+  <Copy color="RebeccaPurple">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.</Copy>
+  <Copy bold>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.</Copy>
+  <Copy size={Size.Large}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.</Copy>
+  <Copy size={Size.Small}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.</Copy>
 </Playground>
