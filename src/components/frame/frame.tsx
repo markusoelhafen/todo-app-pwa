@@ -3,8 +3,16 @@ import styled from 'styled-components'
 
 export interface FrameProps {
   children?: React.ReactNode
+  /**
+   * Set this to change center items
+   * @default false
+   */
   centered?: boolean
-  className?: string;
+  /**
+   * Set this for a custom ClassName
+   * @default emtpy
+   */
+  className?: string
 }
 
 const StyledFrame = styled.div`
@@ -15,7 +23,7 @@ const StyledFrame = styled.div`
   height: 100%;
 `;
 
-const Frame: React.StatelessComponent<FrameProps> = (props): JSX.Element => (
+export const Frame: React.StatelessComponent<FrameProps> = (props): JSX.Element => (
   <StyledFrame>
     {props.children}
   </StyledFrame>

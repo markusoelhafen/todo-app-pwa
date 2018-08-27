@@ -3,7 +3,15 @@ import styled, { css } from 'styled-components';
 
 export interface CopyProps {
   children: React.ReactNode;
+  /**
+   * Default, Small, Large
+   * @default Default
+   */
   size?: Size;
+  /**
+   * Accepts all HTML Color Names
+   * @default black
+   */
   color?: string | "black";
   bold?: boolean;
   centered?: boolean;
@@ -35,7 +43,7 @@ const StyledCopy = styled.div`
   }};
 `;
 
-const Copy: React.StatelessComponent<CopyProps> = (props): JSX.Element => (
+export const Copy: React.StatelessComponent<CopyProps> = (props): JSX.Element => (
   <StyledCopy color={props.color} size={props.size} bold={props.bold} centered={props.centered}>
     {props.children}
   </StyledCopy>

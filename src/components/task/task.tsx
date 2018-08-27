@@ -36,7 +36,7 @@ const StyledCheckbox = styled.div`
   }
 `;
 
-const Task: React.StatelessComponent<TaskProps>= (props): JSX.Element => (
+export const Task: React.StatelessComponent<TaskProps>= (props): JSX.Element => (
   <StyledTaskContainer>
     <StyledCheckbox id={props.id} onClick={props.onClick}/>
       <StyledTaskField>

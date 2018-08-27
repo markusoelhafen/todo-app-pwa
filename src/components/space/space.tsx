@@ -44,9 +44,9 @@ export function Space (input: SpaceSize) {
 }
 
 const SpaceComponent: React.StatelessComponent<SpaceProps> = (props): JSX.Element => (
-  <React.Fragment>
+  <>
     foo
-  </React.Fragment>
+  </>
 )
 
 export default SpaceComponent;

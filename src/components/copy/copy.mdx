@@ -1,0 +1,30 @@
+---
+name: Copy
+menu: Components
+---
+
+import { Playground, PropsTable } from 'docz'
+import {Copy, Size} from './copy'
+
+# Copy
+
+Copies communicate the action that is needed and for general information.
+
+## Best practices
+- You can highlight important parts by making it bold for example.
+- Use the large Copy for section headlines
+
+## Properties
+
+<PropsTable of={Copy} />
+
+## Basic usage
+
+<Playground>
+  <Copy>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.</Copy>
+  <Copy centered>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.</Copy>
+  <Copy color="RebeccaPurple">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.</Copy>
+  <Copy bold>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.</Copy>
+  <Copy size={Size.Large}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.</Copy>
+  <Copy size={Size.Small}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.</Copy>
+</Playground>
