@@ -14,7 +14,7 @@ Also I'll document everything as good as possible and comment on the code.
 - create-react-app
 - Typescript
 - styled-components
-- docz
+- docz (thanks to @frederikreiss)
 
 ## 🚀 Get it running
 
