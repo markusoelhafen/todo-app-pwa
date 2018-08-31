@@ -1,4 +1,5 @@
 export default {
-  description: 'A simple todo app aimed to be a PWA someday…',
+  title: '✏️ Memo – Task app',
+  description: 'A simple task app aimed to be a PWA someday…',
   typescript: true,
 }
