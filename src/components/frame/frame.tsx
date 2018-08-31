@@ -16,11 +16,24 @@ export interface FrameProps {
 }
 
 const StyledFrame = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-areas:
+    "header header header"
+    ". form ."
+    ". list .";
   width: 100%;
   height: 100%;
+
+  @media (max-width: 720px) {
+    max-height: 100vh;
+    grid-template-columns: auto;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+    "header"
+    "list"
+    "form";
+  }
 `;
 
 export const Frame: React.StatelessComponent<FrameProps> = (props): JSX.Element => (

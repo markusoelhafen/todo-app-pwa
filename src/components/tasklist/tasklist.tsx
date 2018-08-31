@@ -8,8 +8,8 @@ export interface TaskListProps {
 }
 
 const StyledTaskContainer = styled.div`
+  grid-area: list;
   box-sizing: border-box;
-  display: block;
   margin-top: 30px;
   width: 50%;
 

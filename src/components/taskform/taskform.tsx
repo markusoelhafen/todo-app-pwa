@@ -7,15 +7,13 @@ export interface TaskFormProps extends InputProps{
 }
 
 const StyledFormWrapper = styled.form`
-  display: flex;
-  justify-content: center;
-  width: 50%;
+  grid-area: form;
 
-  @media (max-width: 720px) {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
+  // @media (max-width: 720px) {
+  //   position: fixed;
+  //   bottom: 0;
+  //   width: 100%;
+  // }
 `;
 
 const StyledInput = styled(Input)`
