@@ -38,7 +38,7 @@ const StyledCopy = styled.div`
       case Size.Small:
         return css`font-size: 12px; line-height: 18px;`;
       case Size.Large:
-        return css`font-size: 36px; line-height: 48px;`;
+        return css`font-size: 32px; line-height: 44px;`;
     }
   }};
 `;
