@@ -1,4 +1,5 @@
 import * as React from 'react';
+// import ReactDom from 'react-dom';
 import { injectGlobal } from 'styled-components';
 import Frame from './components/frame/frame';
 import Input from './container/input-container';
@@ -45,6 +46,10 @@ class App extends React.Component<{}, AppState> {
     selected: undefined,
     value: ""
   }
+
+  public componentDidMount() {
+    document.addEventListener('click', e => this.handleClick(e as any));
+  }
   
   public render() {
     return (
@@ -86,16 +91,20 @@ class App extends React.Component<{}, AppState> {
   }
 
   private handleClick(e: React.MouseEvent<HTMLElement>) {
+
+    e.preventDefault()
+
     const className = (e.target as HTMLElement).className.split(' ');
 
     if (className[0] === 'task') {
-      console.log('click on taskname');
+      // console.log('click on taskname');
       this.selectItem(e.target as HTMLElement);
     } else if (className[0] === 'checkbox') {
-      console.log('click on checkbox')
+      // console.log('click on checkbox')
       this.deleteToDo(e);
     } else {
-      console.log('click on something else')
+      // console.log('click on something else')
+      this.handleClickOutside()
     }
   }
 
@@ -114,10 +123,25 @@ class App extends React.Component<{}, AppState> {
       this.setState({
         data: this.state.data,
         selected: clickedItem[0]
-      }, () => console.log('updated', this.state.data))
+      })
 
     }
 
+  }
+
+  private handleClickOutside() {
+    if(this.state.selected) {
+      const currentlyActiveItem = this.state.data.filter(item => this.state.selected.id === item.id)
+
+      currentlyActiveItem[0].isActive = false;
+
+      this.setState({
+        data: this.state.data,
+        selected: undefined
+      })
+
+
+    }
   }
 
   private deleteToDo(e: React.MouseEvent<HTMLElement>) {
