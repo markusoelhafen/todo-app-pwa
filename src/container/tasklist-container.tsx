@@ -4,7 +4,8 @@ import Task from '../components/task/task';
 import TaskListComponent from '../components/tasklist/tasklist';
 
 export interface DataProps {
-  id: number
+  id: string
+  isActive: boolean
   timestamp: number
   value: string
 }
@@ -23,12 +24,12 @@ export class Tasklist extends React.Component<DataListProps> {
       <TaskListComponent className={this.props.className}>
         {this.props.data.length > 0 ? 
           <>
-            <Copy bold={true} size={Size.Large}>
-              Your open Tasks
+            <Copy size={Size.Large}>
+              My open Tasks
             </Copy>
 
-            {this.props.data.map((item:any) =>
-              <Task data={item.value} id={item.id} key={item.id} onClick={this.props.onClick}/>
+            {this.props.data.map((item: DataProps) =>
+              <Task data={item.value} id={item.id} key={item.id} onClick={this.props.onClick} isActive={item.isActive}/>
             )}
 
           </>

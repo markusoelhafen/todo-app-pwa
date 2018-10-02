@@ -14,7 +14,7 @@ const StyledTaskContainer = styled.div`
   width: 50%;
 
   @media (max-width: 720px) {
-    width: 95%;
+    width: 90%;
   }
 `;
 

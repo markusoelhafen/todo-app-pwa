@@ -10,19 +10,21 @@ const StyledFormWrapper = styled.form`
   display: flex;
   justify-content: center;
   width: 50%;
+  margin-top: 20px;
 
   @media (max-width: 720px) {
     position: fixed;
-    bottom: 0;
-    width: 100%;
+    bottom: 20px;
+    width: 90%;
+    box-sizing: border-box;
   }
 `;
 
 const StyledInput = styled(Input)`
+
+  border-radius: 50px;
+
   @media (max-width: 720px) {
-    border-radius: 0;
-    border: 0;
-    border-top: 1px solid #ccc;
     height: 60px;
   }
 `;
